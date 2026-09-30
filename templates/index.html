@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Powered IPsec VPN Analyzer
+    </title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>🔐 IPsec VPN</h2>
+
+        <p class="subtitle">
+            AI Security Analyzer
+        </p>
+
+
+        <button onclick="showPage('home')">
+            🏠 Dashboard
+        </button>
+
+
+        <button onclick="showPage('upload')">
+            📁 Upload PCAP
+        </button>
+
+
+        <button onclick="showPage('demo')">
+            🧪 Demo Scenarios
+        </button>
+
+
+        <button onclick="showPage('results')">
+            📊 Analysis Results
+        </button>
+
+
+        <button onclick="showPage('reports')">
+            📄 Security Report
+        </button>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header>
+
+            <h1>
+                AI Powered IPsec VPN Analyzer
+            </h1>
+
+            <p>
+                Protocol Analysis and Security Assessment Framework
+            </p>
+
+        </header>
+
+
+
+        <!-- ================= HOME ================= -->
+
+        <section id="home"
+                 class="page">
+
+            <h2>
+                Security Dashboard
+            </h2>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <h3>🟢 Strong VPN</h3>
+
+                    <div class="score">
+                        91/100
+                    </div>
+
+                    <p>
+                        Risk:
+                        <b>LOW</b>
+                    </p>
+
+                    <p>
+                        AI Confidence:
+                        <b>94%</b>
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>🟠 Moderate VPN</h3>
+
+                    <div class="score">
+                        72/100
+                    </div>
+
+                    <p>
+                        Risk:
+                        <b>MEDIUM</b>
+                    </p>
+
+                    <p>
+                        AI Confidence:
+                        <b>86%</b>
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>🔴 Weak VPN</h3>
+
+                    <div class="score">
+                        42/100
+                    </div>
+
+                    <p>
+                        Risk:
+                        <b>HIGH</b>
+                    </p>
+
+                    <p>
+                        AI Confidence:
+                        <b>78%</b>
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="info-box">
+
+                <h3>
+                    🔎 How the system works
+                </h3>
+
+                <p>
+                    Upload a PCAP file and the system
+                    analyzes IKE, ESP, AH and network
+                    traffic to generate a security
+                    assessment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= UPLOAD ================= -->
+
+        <section id="upload"
+                 class="page hidden">
+
+            <h2>
+                📁 Upload PCAP File
+            </h2>
+
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    📡
+                </div>
+
+
+                <h3>
+                    Select an IPsec PCAP file
+                </h3>
+
+
+                <p>
+                    Supported formats:
+                    .pcap and .pcapng
+                </p>
+
+
+                <input
+                    type="file"
+                    id="pcapFile"
+                    accept=".pcap,.pcapng">
+
+
+                <button
+                    class="analyze-button"
+                    onclick="analyzePCAP()">
+
+                    🔍 Analyze PCAP
+
+                </button>
+
+
+                <p id="uploadStatus"></p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DEMO ================= -->
+
+        <section id="demo"
+                 class="page hidden">
+
+            <h2>
+                🧪 Demo Scenarios
+            </h2>
+
+
+            <p>
+                Test the dashboard using predefined
+                security scenarios.
+            </p>
+
+
+            <div class="demo-buttons">
+
+                <button onclick="loadDemo('strong')">
+                    🟢 Strong VPN
+                </button>
+
+
+                <button onclick="loadDemo('moderate')">
+                    🟠 Moderate VPN
+                </button>
+
+
+                <button onclick="loadDemo('weak')">
+                    🔴 Weak VPN
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= RESULTS ================= -->
+
+        <section id="results"
+                 class="page hidden">
+
+            <h2>
+                📊 Analysis Results
+            </h2>
+
+
+            <div id="resultBox"
+                 class="result-box">
+
+                <p>
+                    No analysis performed yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= REPORT ================= -->
+
+        <section id="reports"
+                 class="page hidden">
+
+            <h2>
+                📄 Security Report
+            </h2>
+
+
+            <div class="report">
+
+                <h3>
+                    IPsec VPN Security Assessment
+                </h3>
+
+
+                <p>
+                    The system analyzes captured
+                    IPsec VPN traffic and provides
+                    a security assessment.
+                </p>
+
+
+                <button
+                    onclick="generateReport()">
+
+                    📄 Generate Report
+
+                </button>
+
+
+                <p id="reportStatus"></p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
